@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+</head>
+<body>
+
+    <h1>just for laughs </h1>
+    
+    <!-- Create a button to display a random joke -->
+    <button id="jokeButton">click to crack your bones</button>
+    
+    <!-- Create a TinyMCE editor to display the joke -->
+    <textarea id="mytextarea"></textarea>
+    
+    <script>
+        // Initialize TinyMCE editor
+        tinymce.init({
+            selector: '#mytextarea',
+            menubar: false,
+            toolbar: false,
+            statusbar: false
+        });
+
+        // List of jokes related to Python and programming
+        const jokes = [
+            "Why do programmers prefer dark mode? Because the light attracts bugs!",
+            "Why did the Python developer break up with his girlfriend? Because she didn’t understand his 'self'!",
+            "Why do programmers hate nature? It has too many bugs!",
+            "I told my computer I needed a break, and now it won’t stop sending me KitKats!",
+            "Why did the developer go broke? Because he used up all his cache!",
+            "How many programmers does it take to change a light bulb? None. It’s a hardware problem!"
+        ];
+
+        // Function to get a random joke and display it in the editor
+        document.getElementById('jokeButton').addEventListener('click', function() {
+            // Get a random joke
+            const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+
+            // Display the joke in TinyMCE editor
+            tinymce.get('mytextarea').setContent(randomJoke);
+        });
+    </script>
+
+</body>
+</html>
